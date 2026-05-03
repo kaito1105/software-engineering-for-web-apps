@@ -1,0 +1,147 @@
+/******************** Styles for All Device Sizes ********************/
+/*
+Styles outside the media queries apply across all breakpoints unless 
+over-ridden inside one of the media queries
+*/
+body {
+  color: #333333;
+  background-color: #ffffff;
+  font-family: "Inter", "Roboto", Arial, sans-serif;
+}
+
+h1 {
+  color: #9e0505;
+  display: inline;
+  padding: 0px 5px;
+}
+
+h2 {
+  text-align: center;
+  color: #9e0505;
+}
+
+hr {
+  border: 2px solid;
+  border-color: #C9A227;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+}
+
+.about {
+  margin: 10px 0px;
+}
+
+.about span {
+  font-weight: bold;
+  font-size: 20px;
+  color: #9e0505;
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table,
+td,
+th {
+  border: 2px solid;
+  border-color: #9e0505;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+}
+
+.footer-container {
+  margin: 5px 0px;
+  text-align: center;
+}
+
+h4 {
+  color: #C9A227;
+  display: inline;
+}
+
+.footer-container a {
+  display: block;
+  text-decoration: none;
+}
+
+.footer-container a:hover {
+  color: #C9A227;
+  text-decoration: underline;
+}
+
+/******************** Nav Bar Styles ********************/
+ul.navbar {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul.navbar li {
+  float: left;
+  margin: 0px 0px 0px 4px;
+  width: 150px;
+  min-width: 100px;
+  text-align: center;
+}
+
+ul.navbar a {
+  display: block;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #9e0505;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+ul.navbar a:hover {
+  background-color: #C9A227;
+}
+
+/******************** Styles for Phones ONLY ********************/
+@media only screen and (max-width: 599px) {
+  .title, .subtitle {
+    text-align: center;
+  }
+}
+
+/******************** Styles for Tablets or Larger ********************/
+@media only screen and (min-width: 600px) {
+  .title, .subtitle {
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+  }
+  .title {
+    margin-top: 20px;
+  }
+  .subtitle {
+    margin-bottom: 25px;
+  }
+}
+
+/******************** Styles for Desktop and other Wide Screens ONLY ********************/
+@media only screen and (min-width: 768px) {
+  .title {
+  text-align: right;
+  margin: 25px 0px;
+}
+
+.subtitle {
+  text-align: left;
+  margin: 25px 0px;
+}
+}

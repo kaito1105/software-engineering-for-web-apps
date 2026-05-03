@@ -1,0 +1,81 @@
+/*
+  YOU DO NOT NEED TO ALTER THIS STYLESHEET.
+
+  It's a very minimal CSS framework for responsive columns using a 12-column grid system.
+  Common CSS frameworks such as Bootstrap and W3.css, which are also a single-file external stylesheets,
+  have similar column classes but also offer far more user interface functionality.
+
+  Originally, all responsive frameworks used floated blocks to create columns.
+  W3.css still does (as of Early 2026), but some frameworks are starting to use other CSS techniues
+  for columns such as CSS Flexbox or Grid Containers.
+
+*/
+
+
+/******************** Styles for All Device Sizes ********************/
+* { box-sizing: border-box;} /* Civilized width calculations for all HTML elements. */
+
+
+/* rows will max at 1200px wide on big screens, but 100% wide on screens smaller than 1200px wide */
+.row {
+  max-width: 1200px;
+  margin: 0px auto 0px auto; /* centers row panels */
+}
+
+/* Nifty hack to clear the float after any row */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Standard Column Block - Floated*/
+.col {
+  float: left;
+  padding: 10px;
+}
+
+
+/******************** Styles for Phones ONLY ********************/
+@media only screen and (max-width: 599px) {
+  /*
+    Don't need anything here for the columns since div blocks are 100% width by default.
+    So all column panels will automatically stack on top of each other for phones.
+  */
+
+}
+
+/******************** Styles for Tablets or Larger ********************/
+@media only screen and (min-width: 600px) {
+  .col.m1  {width: 8.33%;}
+  .col.m2  {width: 16.66%;}
+  .col.m3  {width: 25%;}
+  .col.m4  {width: 33.33%;}
+  .col.m5  {width: 41.66%;}
+  .col.m6  {width: 50%;}
+  .col.m7  {width: 58.33%;}
+  .col.m8  {width: 66.66%;}
+  .col.m9  {width: 75%;}
+  .col.m10 {width: 83.33%;}
+  .col.m11 {width: 91.66%;}
+  .col.m12 {width: 100%;}
+}
+
+/******************** Styles for Desktop and other Wide Screens ONLY ********************/
+@media only screen and (min-width: 768px) {
+  .col.l1  {width: 8.33%;}
+  .col.l2  {width: 16.66%;}
+  .col.l3  {width: 25%;}
+  .col.l4  {width: 33.33%;}
+  .col.l5  {width: 41.66%;}
+  .col.l6  {width: 50%;}
+  .col.l7  {width: 58.33%;}
+  .col.l8  {width: 66.66%;}
+  .col.l9  {width: 75%;}
+  .col.l10 {width: 83.33%;}
+  .col.l11 {width: 91.66%;}
+  .col.l12 {width: 100%;}
+}
+
+
+
