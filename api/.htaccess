@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  RewriteBase /~miyamotok/csci488/api/
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+
+  RewriteRule ^(.+)/([0-9]+)/([0-9]+)$ api.php?work=$1&act=$2&scene=$3 [QSA,NC]
+  RewriteRule ^(.+)$ api.php?work=$1 [QSA,NC]
+
+</IfModule>
