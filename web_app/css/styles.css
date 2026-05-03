@@ -1,0 +1,43 @@
+
+body {
+  font-family: Verdana;
+  color: #333333;
+}
+
+
+
+/****************************************************************************
+Styles for the Structural Blocks
+****************************************************************************/
+
+#page_wrapper {
+  width:1000px;
+  margin:auto;
+}
+
+#header {
+  height: 100px;
+  border: 1px #C9A227 solid;
+  color: #9e0505;
+  text-align: center;
+  padding: 5px;
+  background-color: #fff;
+}
+
+#content {
+  min-height:500px;
+  border: 1px #C9A227 solid;
+  padding: 5px;
+  background-color: #fff;
+}
+
+#footer {
+  height:100px;
+  border: 1px #C9A227 solid;
+  color: #9e0505;
+  text-align: center;
+  padding: 5px;
+  background-color: #fff;
+}
+
+
