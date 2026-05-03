@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Recipe Submission Form</title>
+</head>
+
+<body>
+  <h2>Recipe Submission Form</h2>
+
+  <form name="form" action="echo.php" method="POST">
+    <label for="recipe">Recipe Name:</label><br>
+    <input type="text" id="recipe" name="recipe" 
+           placeholder="e.g., Spaghetti Carbonara" required>
+    <br><br>
+
+    <label for="email">Your Email:</label><br>
+    <input type="email" id="email" name="email" placeholder="abc@example.com" required>
+    <br><br>
+
+    <label for="date">Preparation Date:</label><br>
+    <input type="date" id="date" name="preparation_date" required>
+    <br><br>
+
+    <label for="time">Total Cooking Time (minutes):</label><br>
+    <input type="number" id="time" name="time" min="1" max="600" required>
+    <br><br>
+
+    <label for="difficulty">Difficulty Level (1 = Easy, 10 = Hard):</label><br>
+    <input type="range" id="difficulty" name="difficulty" min="1" max="10" required>
+    <br><br>
+
+    Meal Time:<br>
+    <input type="radio" id="breakfast" name="meal_time" value="breakfast" required>
+    <label for="breakfast">Breakfast</label><br>
+
+    <input type="radio" id="lunch" name="meal_time" value="lunch" required>
+    <label for="lunch">Lunch</label><br>
+
+    <input type="radio" id="dinner" name="meal_time" value="dinner" required>
+    <label for="dinner">Dinner</label><br>
+
+    <input type="radio" id="snack" name="meal_time" value="snack" required>
+    <label for="snack">Snack</label>
+    <br><br>
+
+    Dish Type:<br>
+    <input type="radio" id="main_course" name="dish_type" value="main" required>
+    <label for="main_course">Main Course</label><br>
+
+    <input type="radio" id="side_dish" name="dish_type" value="side" required>
+    <label for="side_dish">Side Dish</label><br>
+
+    <input type="radio" id="appetizer" name="dish_type" value="appetizer" required>
+    <label for="appetizer">Appetizer</label><br>
+
+    <input type="radio" id="soup" name="dish_type" value="soup" required>
+    <label for="soup">Soup</label><br>
+
+    <input type="radio" id="dessert" name="dish_type" value="dessert" required>
+    <label for="dessert">Dessert</label>
+    <br><br>
+
+    <label for="method">Main Cooking Method:</label><br>
+    <select id="method" name="method" required>
+      <option value="">Select one</option>
+      <option value="boiling">Boiling</option>
+      <option value="baking">Baking</option>
+      <option value="frying">Frying</option>
+      <option value="steaming">Steaming</option>
+      <option value="grilling">Grilling</option>
+    </select>
+    <br><br>
+
+    Proteins Used (Select all that apply):<br>
+    <input type="checkbox" id="beef" name="proteins" value="beef">
+    <label for="beef">Beef</label><br>
+
+    <input type="checkbox" id="pork" name="proteins" value="pork">
+    <label for="pork">Pork</label><br>
+
+    <input type="checkbox" id="chicken" name="proteins" value="chicken">
+    <label for="chicken">Chicken</label><br>
+
+    <input type="checkbox" id="fish" name="proteins" value="fish">
+    <label for="fish">Fish</label><br>
+
+    <input type="checkbox" id="egg" name="proteins" value="egg">
+    <label for="egg">Egg</label>
+    <br><br>
+
+    <label for="ingredients">Additional Ingredients (Select one or more):</label><br>
+    <select id="ingredients" name="ingredients[]" multiple size="6" required>
+      <option value="onion">Onion</option>
+      <option value="carrot">Carrot</option>
+      <option value="potato">Potato</option>
+      <option value="lettuce">Lettuce</option>
+      <option value="cabbage">Cabbage</option>
+      <option value="tomato">Tomato</option>
+    </select>
+    <br><br>
+
+    <label for="instructions">Cooking Instructions:</label><br>
+    <textarea id="instructions" name="instructions" rows="5" cols="40"
+              placeholder="1. Preheat oven to 180°C...&#10;2. Chop vegetables..." 
+              required></textarea>
+    <br><br>
+
+    <input type="hidden" name="recipe_id" value="1234">
+
+    <input type="reset" value=" Reset ">
+    <input type="submit" value=" Submit ">
+  </form>
+
+</body>
+
+</html>
