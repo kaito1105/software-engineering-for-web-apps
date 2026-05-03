@@ -1,0 +1,44 @@
+PHP Sessions and Cookies Assignment
+=====================================
+ 
+Build a 3-page quiz using PHP sessions to pass data between pages.
+NO DATABASE ALLOWED.
+ 
+Each page submits to itself, validates that all fields are filled out,
+re-displays the form with an error message and previously entered values
+still filled in if validation fails, and redirects to the next page on success.
+All validation must be done in PHP, not JavaScript.
+Every page must guard against missing session data and redirect back to
+page 1 if it is absent.
+ 
+ 
+PAGE 1  --  Name entry and one multiple choice question (radio buttons)
+PAGE 2  --  Two more questions (True/False radios and a dropdown) plus a signature field
+PAGE 3  --  Graded results table showing each answer, whether it was correct, and a final score
+ 
+ 
+COOKIES
+-------
+Two persistent cookies (1 year expiry) are required.
+One records the user's name -- used on page 1 to display a welcome back
+message and pre-fill the name field on future visits.
+The other records when the quiz was last completed -- displayed on page 1
+below the welcome message.
+ 
+ 
+BACK BUTTON
+-----------
+Once a page has been submitted the user should not be able to use the
+back button to return to it. The cache-control headers and session checks
+already provided handle most of this, but only if your session data is
+saved and checked correctly.
+
+TODO
+-----------
+There are many instances of TODO in the comments in the files provided.
+Make sure the TODO's are done AND delete all the TODO comments. 
+ 
+HAND IN
+----------
+Make available in your course page via a "SESSIONS" link to your nav bar.
+Zip all the folder with your solutions and upload to dropbox on Canvas. 
