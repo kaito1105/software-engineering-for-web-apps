@@ -20,7 +20,6 @@ function get_logon_and_admin(): array
 switch ($task) {
    case 'save':
 
-      // $user = new user();
       $user->load_from_form_submit();
 
       [$logon, $is_admin_user] = get_logon_and_admin();
@@ -110,6 +109,8 @@ switch ($task) {
       if ($is_admin_user) {
          $user_id = $get_post['user_id'] ?? 0;
          if ($user_id > 0) {
+            $api_log = new api_log();
+            $api_log->delete($user_id, true, 'api_log_user_id');
             $logon_record = new logon();
             $logon_record->delete($user_id, true, 'logon_id');
             $delete_user = new user();
@@ -136,13 +137,11 @@ switch ($task) {
          $user_id = $logon->values['logon_id'];
       }
 
-      // $user = new user();
       $user->load($user_id);
       $user->html_safe();
       break;
 
    default:
-      // $user = new user();
       break;
 }
 
