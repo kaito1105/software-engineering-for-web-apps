@@ -13,4 +13,12 @@ if (!$bearer_token) {
     exit;
 }
 
+$user_id = user::get_user_from_api_token($bearer_token);
+
+if ($user_id === -1) {
+    http_response_code(403);
+    echo json_encode(['status' => 'error', 'message' => 'Forbidden — invalid token']);
+    exit;
+}
+
 ?>
