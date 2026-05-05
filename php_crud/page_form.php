@@ -92,7 +92,7 @@ switch ($task) {
 
     if ($recipe_id > 0) {
       // UPDATE existing record
-      $sql = "UPDATE " . MIYAMOTO_FORM_TABLE . " SET 
+      $sql = "UPDATE " . FORM_TABLE . " SET 
         recipe_name = :recipe_name, 
         email = :email, 
         preparation_date = :preparation_date, 
@@ -121,7 +121,7 @@ switch ($task) {
       lib::db_query($sql, $placehold);
     } else {
       // INSERT new record
-      $sql = "INSERT INTO " . MIYAMOTO_FORM_TABLE . " VALUES (
+      $sql = "INSERT INTO " . FORM_TABLE . " VALUES (
         NULL, 
         :recipe_name, 
         :email, 
@@ -166,7 +166,7 @@ switch ($task) {
     }
 
     // DELETE the record
-    $sql = "DELETE FROM " . MIYAMOTO_FORM_TABLE . " WHERE recipe_id = :recipe_id";
+    $sql = "DELETE FROM " . FORM_TABLE . " WHERE recipe_id = :recipe_id";
     $placehold = [':recipe_id' => $recipe_id];
     lib::db_query($sql, $placehold);
 
@@ -186,7 +186,7 @@ switch ($task) {
     }
 
     $recipe_id = $get_post['recipe_id'];
-    $sql = "SELECT * FROM " . MIYAMOTO_FORM_TABLE . " WHERE recipe_id = :recipe_id";
+    $sql = "SELECT * FROM " . FORM_TABLE . " WHERE recipe_id = :recipe_id";
     $placehold = [':recipe_id' => $recipe_id];
     $result = lib::db_query($sql, $placehold);
     $row = $result->fetch();  // will only be one row
