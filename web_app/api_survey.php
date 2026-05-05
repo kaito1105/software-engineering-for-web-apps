@@ -9,7 +9,10 @@ $bearer_token = str_replace('Bearer ', '', $auth_header);
 
 if (!$bearer_token) {
   http_response_code(401);
-  echo json_encode(['status' => 'error', 'message' => 'Unauthorized — Bearer token required']);
+  echo json_encode([
+    'status' => 'error',
+    'message' => 'Unauthorized — Bearer token required'
+  ]);
   exit;
 }
 
@@ -68,7 +71,10 @@ if ($method === 'GET') {
     !$additional_ingredients || !$cooking_instructions
   ) {
     http_response_code(422);
-    echo json_encode(['status' => 'error', 'message' => 'Validation failed — required fields missing or invalid']);
+    echo json_encode([
+      'status' => 'error',
+      'message' => 'Validation failed — required fields missing or invalid'
+    ]);
     exit;
   }
 
