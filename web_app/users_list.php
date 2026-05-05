@@ -57,7 +57,7 @@ if (!$is_admin) {
 
   tbody th {
     text-align: left;
-    font-size: 9pt;
+    font-size: 8pt;
   }
 </style>
 
