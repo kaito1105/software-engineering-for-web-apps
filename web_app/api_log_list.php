@@ -57,9 +57,12 @@ if (!$is_admin) {
   }
 </style>
 
-<h2>Manage Users</h2>
+<h2>API Log List</h2>
 <b>Listing of API Log Records:</b>
 
 <?= $listing->get_html() ?>
+
+<br><br>
+<a href="dashboard.php">Go to Dashboard</a>
 
 <? require "ssi_bottom.php"; ?>

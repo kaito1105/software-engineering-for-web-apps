@@ -76,6 +76,9 @@ if (!$is_admin) {
 
 <?= $listing->get_html() ?>
 
+<br><br>
+<a href="dashboard.php">Go to Dashboard</a>
+
 <script type="text/javascript">
 
   function confirm_delete(user_id, user_name) {

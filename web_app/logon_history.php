@@ -34,6 +34,9 @@ $logon_data = $user_id ? logon::get_logon($user_id) : [];
 
 <? } ?>
 
+<br><br>
+<a href="dashboard.php">Go to Dashboard</a>
+
 <?
 require 'ssi_bottom.php';
 ?>
