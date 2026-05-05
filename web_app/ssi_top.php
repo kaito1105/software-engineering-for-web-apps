@@ -19,7 +19,7 @@ if (!isset($security) || $security !== false) {
 <body>
   <div id="page_wrapper">
     <div id="header">
-      <h2>My Recipe Book</h2>
+      <h1>My Recipe Book</h1>
       <? if (isset($login_user) && $login_user->get_id_value()) { ?>
         <?= htmlspecialchars($login_user->values['user_email']) ?> is logged in. |
         <a href="ssi_security.php?logout=yes">Log Out</a>
@@ -31,6 +31,9 @@ if (!isset($security) || $security !== false) {
           | <a href="users_list.php">Manage Users</a>
           | <a href="api_log_list.php">API Log List</a>
         <? } ?>
+      <? } else { ?>
+        Welcome to My Recipe Book. Store, manage, and share your favorite recipes in one place.<br><br>
+        Sign in to get started, or create an account to join our community.
       <? } ?>
     </div>
 
