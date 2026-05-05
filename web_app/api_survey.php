@@ -27,6 +27,16 @@ if ($method === 'GET') {
     "SELECT * FROM " . FORM_TABLE . " ORDER BY recipe_name ASC"
   );
   $rows = $result->fetchAll();
+
+  $api_log = new api_log();
+  $api_log->values['api_log_user_id'] = $user_id;
+  $api_log->values['api_log_form_id'] = null;
+  $api_log->values['api_log_timestamp'] = time();
+  $api_log->values['api_log_method'] = 'GET';
+  $api_log->values['api_log_http_code'] = 200;
+  $api_log->values['api_log_token'] = $bearer_token;
+  $api_log->save();
+
   $response = array(
     "status" => "success",
     "count" => count($rows),
