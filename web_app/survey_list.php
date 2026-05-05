@@ -15,15 +15,15 @@ require 'ssi_top.php';
 <br><br>
 
 <? if ($num_rows == 0) { ?>
-  <b>No records were found in the database.</b>
+  <b>No records were found in the database.</b><br><br>
 <? } else { ?>
   <? if ($get_post['complete'] ?? '') { ?>
-    Thank you for submitting the data form.
+    Thank you for submitting the data form.<br><br>
   <? } ?>
 
   <b>Listing of Database Records:</b>
 
-  <table width="" border="1" cellspacing="0" cellpadding="5">
+  <table border="1" cellspacing="0" cellpadding="5">
     <tr valign="top">
       <th>Recipe Name</th>
       <th>Email</th>
