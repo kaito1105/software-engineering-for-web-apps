@@ -109,10 +109,10 @@ if ($method === 'GET') {
 
   $api_log = new api_log();
   $api_log->values['api_log_user_id'] = $user_id;
-  $api_log->values['api_log_survey_id'] = $new_form_id;
+  $api_log->values['api_log_form_id'] = $new_form_id;
   $api_log->values['api_log_timestamp'] = time();
   $api_log->values['api_log_method'] = 'POST';
-  $api_log->values['api_log_response'] = 201;
+  $api_log->values['api_log_http_code'] = 201;
   $api_log->values['api_log_token'] = $bearer_token;
   $api_log->save();
 
