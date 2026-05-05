@@ -21,7 +21,7 @@ if (!isset($security) || $security !== false) {
     <div id="header">
       <h1>My Recipe Book</h1>
       <? if (isset($login_user) && $login_user->get_id_value()) { ?>
-        <?= htmlspecialchars($login_user->values['user_email']) ?> is logged in. |
+        <span style="color: #C9A227;"><?= htmlspecialchars($login_user->values['user_email']) ?></span> is logged in. |
         <a href="ssi_security.php?logout=yes">Log Out</a>
         <br><br>
         <a href="dashboard.php">Dashboard</a> |

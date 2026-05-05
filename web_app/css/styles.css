@@ -14,9 +14,19 @@ Styles for the Structural Blocks
   margin: auto;
 }
 
+#page_wrapper a {
+  color: #9e0505;
+  text-decoration: none;
+}
+
+#page_wrapper a:hover {
+  color: #C9A227;
+  text-decoration: underline;
+}
+
 #header {
   height: 150px;
-  border: 1px #C9A227 solid;
+  border-bottom: 4px #C9A227 solid;
   color: #9e0505;
   text-align: center;
   padding: 5px;
@@ -25,8 +35,7 @@ Styles for the Structural Blocks
 
 #content {
   min-height: 500px;
-  border: 1px #C9A227 solid;
-  padding: 5px;
+  padding: 20px;
   background-color: #fff;
 }
 
@@ -40,7 +49,7 @@ Styles for the Structural Blocks
 
 #footer {
   height: 100px;
-  border: 1px #C9A227 solid;
+  border-top: 4px #C9A227 solid;
   color: #9e0505;
   text-align: center;
   padding: 5px;
