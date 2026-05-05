@@ -74,4 +74,14 @@ class user extends data_operations {
     return $user;
   }
 
+  public static function get_user_from_api_token($token) {
+    if (empty($token)) return -1;
+
+    $sql = "SELECT user_id FROM " . USERS_TABLE . " WHERE user_api_token = :token";
+    $result = lib::db_query($sql, [':token' => $token]);
+    $row = $result->fetch();
+
+    return $row ? $row['user_id'] : -1;
+  }
+
 } //end class
