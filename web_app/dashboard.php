@@ -50,6 +50,8 @@ if ($task == 'generate_token') {
   <? if ($is_admin) { ?>
     <h3>Admin Portal</h3>
     <a href="users_list.php">Manage Users</a>
+    <br><br>
+    <a href="api_log_list.php">API Log List</a>
   <? } ?>
 
 <? } else { ?>
