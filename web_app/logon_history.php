@@ -25,13 +25,6 @@ $listing->init_list();
 $page_title = "Logon History";
 ?>
 
-<?
-if (!$is_admin) {
-  header("Location: dashboard.php");
-  exit;
-}
-?>
-
 <style>
   .even_row_css {
     background-color: #EEE;
