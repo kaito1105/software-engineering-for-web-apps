@@ -7,7 +7,7 @@ require 'init.php';
 // Tests the key outcomes your API must handle correctly.
 // Change these two values to point at the API you are testing.
 // ============================================================
-$api_url   = 'https://csci.lakeforest.edu/~miyamotok/csci488/web_app/survey_api.php';
+$api_url   = 'https://csci.lakeforest.edu/~miyamotok/csci488/web_app/api_survey.php';
 $api_token = '8f9d8313cbc55922b6ba34194ab5599d64ed12f3161813193c63ff724cee9f13';
 
 // Helper — runs one test and returns a structured result with test results
