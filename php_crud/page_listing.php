@@ -1,9 +1,11 @@
 <?
-require 'init.php'; // database connection, etc
+require 'init.php';
 
-// Selects all fields and all records from the table
 $result = lib::db_query(
-  "SELECT * FROM " . MIYAMOTO_FORM_TABLE . " ORDER BY recipe_name ASC"
+  "SELECT f.*, l.api_log_user_id
+     FROM " . FORM_TABLE . " f
+     LEFT JOIN " . API_LOG_TABLE. " l ON f.recipe_id = l.api_log_form_id
+     ORDER BY f.recipe_name ASC"
 );
 $rows = $result->fetchAll();
 $num_rows = count($rows);
@@ -55,6 +57,7 @@ $num_rows = count($rows);
         <th>Proteins Used</th>
         <th>Additional Ingredients</th>
         <th>Cooking Instructions</th>
+        <th>Submitted By</th>
         <td>&nbsp;</td>
       </tr>
       <? foreach ($rows as $row) { ?>
@@ -70,16 +73,17 @@ $num_rows = count($rows);
           <td><?= $row['proteins_used'] ?></td>
           <td><?= $row['additional_ingredients'] ?></td>
           <td><?= $row['cooking_instructions'] ?></td>
+          <td><?= $row['api_log_user_id'] ? 'API (Affiliate)' : 'In-house' ?></td>
           <td>
             <a href="page_form.php?task=edit&recipe_id=<?= $row['recipe_id'] ?>">Edit</a>
             &nbsp;&nbsp;|&nbsp;&nbsp;
             <a href="#null" onclick="confirm_delete(<?= $row['recipe_id'] ?> , '<?= $row['recipe_name'] ?>')">Delete</a>
           </td>
         </tr>
-      <? } // end foreach ?>
+      <? } ?>
     </table>
 
-  <? } // end else ?>
+  <? } ?>
 
 </body>
 
