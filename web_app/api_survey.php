@@ -48,7 +48,72 @@ if ($method === 'GET') {
   exit;
 
 } else if ($method === 'POST') {
-  // implement POST endpoint
+  $recipe_name = $_POST['recipe_name'] ?? '';
+  $email = $_POST['email'] ?? '';
+  $preparation_date = $_POST['preparation_date'] ?? '';
+  $total_cooking_time = $_POST['total_cooking_time'] ?? '';
+  $difficulty_level = $_POST['difficulty_level'] ?? '';
+  $meal_time = $_POST['meal_time'] ?? '';
+  $dish_type = $_POST['dish_type'] ?? '';
+  $main_cooking_method = $_POST['main_cooking_method'] ?? '';
+  $proteins_used = implode(', ', $_POST['proteins_used'] ?? []);
+  $additional_ingredients = implode(', ', $_POST['additional_ingredients'] ?? []);
+  $cooking_instructions = $_POST['cooking_instructions'] ?? '';
+
+  $cooking_time_valid = ctype_digit($total_cooking_time) && (int) $total_cooking_time > 0;
+
+  if (
+    !$recipe_name || !$email || !$preparation_date || !$cooking_time_valid ||
+    !$difficulty_level || !$meal_time || !$dish_type || !$main_cooking_method ||
+    !$additional_ingredients || !$cooking_instructions
+  ) {
+    http_response_code(422);
+    echo json_encode(['status' => 'error', 'message' => 'Validation failed — required fields missing or invalid']);
+    exit;
+  }
+
+  $sql = "INSERT INTO " . FORM_TABLE . " VALUES (
+        NULL, 
+        :recipe_name, 
+        :email, 
+        :preparation_date, 
+        :total_cooking_time, 
+        :difficulty_level, 
+        :meal_time, 
+        :dish_type, 
+        :main_cooking_method, 
+        :proteins_used, 
+        :additional_ingredients, 
+        :cooking_instructions)";
+  $placehold = [
+    ':recipe_name' => $recipe_name,
+    ':email' => $email,
+    ':preparation_date' => $preparation_date,
+    ':total_cooking_time' => $total_cooking_time,
+    ':difficulty_level' => $difficulty_level,
+    ':meal_time' => $meal_time,
+    ':dish_type' => $dish_type,
+    ':main_cooking_method' => $main_cooking_method,
+    ':proteins_used' => $proteins_used,
+    ':additional_ingredients' => $additional_ingredients,
+    ':cooking_instructions' => $cooking_instructions
+  ];
+  lib::db_query($sql, $placehold);
+  $new_form_id = $pdo->lastInsertId();
+
+  $api_log = new api_log();
+  $api_log->values['api_log_user_id'] = $user_id;
+  $api_log->values['api_log_survey_id'] = $new_form_id;
+  $api_log->values['api_log_timestamp'] = time();
+  $api_log->values['api_log_method'] = 'POST';
+  $api_log->values['api_log_response'] = 201;
+  $api_log->values['api_log_token'] = $bearer_token;
+  $api_log->save();
+
+  http_response_code(201);
+  echo json_encode(['status' => 'success', 'message' => 'Survey record created']);
+  exit;
+
 } else {
   http_response_code(405);
   echo json_encode(['status' => 'error', 'message' => 'Request Method not allowed']);
