@@ -2,7 +2,6 @@
 if (!isset($security) || $security !== false) {
   require "ssi_security.php";
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -22,14 +21,15 @@ if (!isset($security) || $security !== false) {
     <div id="header">
       <h2>My Recipe Book</h2>
       <? if (isset($login_user) && $login_user->get_id_value()) { ?>
-        <?= htmlspecialchars($login_user->values['user_email']) ?> is logged in. | 
+        <?= htmlspecialchars($login_user->values['user_email']) ?> is logged in. |
         <a href="ssi_security.php?logout=yes">Log Out</a>
-        <br>
-        <a href="dashboard.php">Dashboard</a> | 
-        <a href="signup_form.php?task=edit">Edit Profile</a> | 
+        <br><br>
+        <a href="dashboard.php">Dashboard</a> |
+        <a href="signup_form.php?task=edit">Edit Profile</a> |
         <a href="logon_history.php">Logon History</a>
         <? if ($is_admin) { ?>
           | <a href="users_list.php">Manage Users</a>
+          | <a href="api_log_list.php">API Log List</a>
         <? } ?>
       <? } ?>
     </div>

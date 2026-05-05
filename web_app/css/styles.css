@@ -15,7 +15,7 @@ Styles for the Structural Blocks
 }
 
 #header {
-  height: 100px;
+  height: 150px;
   border: 1px #C9A227 solid;
   color: #9e0505;
   text-align: center;
@@ -30,7 +30,7 @@ Styles for the Structural Blocks
   background-color: #fff;
 }
 
-#content table {
+#form-table {
   font-size: 12px;
   width: 100%;
   table-layout: fixed;

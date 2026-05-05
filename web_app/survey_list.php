@@ -26,7 +26,7 @@ require 'ssi_top.php';
 
   <b>Listing of Database Records:</b>
 
-  <table border="1" cellspacing="0" cellpadding="5">
+  <table id="form-table" border="1" cellspacing="0" cellpadding="5">
     <tr valign="top">
       <th>Recipe Name</th>
       <th>Email</th>
