@@ -1,4 +1,6 @@
 <?
+// https://csci.lakeforest.edu/~miyamotok/csci488/web_app/api_survey.php
+
 require_once 'init.php';
 
 header('Content-Type: application/json');
