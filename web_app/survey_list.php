@@ -2,7 +2,10 @@
 require 'init.php';
 
 $result = lib::db_query(
-  "SELECT * FROM " . FORM_TABLE . " ORDER BY recipe_name ASC"
+  "SELECT f.*, l.api_log_user_id
+     FROM " . FORM_TABLE . " f
+     LEFT JOIN " . API_LOG_TABLE. " l ON f.recipe_id = l.api_log_form_id
+     ORDER BY f.recipe_name ASC"
 );
 $rows = $result->fetchAll();
 $num_rows = count($rows);
@@ -36,6 +39,7 @@ require 'ssi_top.php';
       <th>Proteins Used</th>
       <th>Additional Ingredients</th>
       <th>Cooking Instructions</th>
+      <th>Submitted By</th>
     </tr>
     <? foreach ($rows as $row) { ?>
       <tr valign="top">
@@ -50,6 +54,7 @@ require 'ssi_top.php';
         <td><?= $row['proteins_used'] ?></td>
         <td><?= $row['additional_ingredients'] ?></td>
         <td><?= $row['cooking_instructions'] ?></td>
+        <td><?= $row['api_log_user_id'] ? 'API (Affiliate)' : 'In-house' ?></td>
       </tr>
     <? } ?>
   </table>
