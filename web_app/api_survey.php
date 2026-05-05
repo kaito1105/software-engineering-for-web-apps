@@ -21,4 +21,28 @@ if ($user_id === -1) {
   exit;
 }
 
+$method = $_SERVER['REQUEST_METHOD'];
+if ($method === 'GET') {
+  $result = lib::db_query(
+    "SELECT * FROM " . FORM_TABLE . " ORDER BY recipe_name ASC"
+  );
+  $rows = $result->fetchAll();
+  $response = array(
+    "status" => "success",
+    "count" => count($rows),
+    "data" => $rows
+  );
+
+  http_response_code(200);
+  echo json_encode($response);
+  exit;
+
+} else if ($method === 'POST') {
+  // implement POST endpoint
+} else {
+  http_response_code(405);
+  echo json_encode(['status' => 'error', 'message' => 'Request Method not allowed']);
+  exit;
+}
+
 ?>
