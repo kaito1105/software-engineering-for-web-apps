@@ -37,8 +37,10 @@ if ($task == 'generate_token') {
   <h3>API Access Token</h3>
   <? if (!empty($login_user->values['user_api_token'])) { ?>
     <?= htmlspecialchars($login_user->values['user_api_token']) ?>
+    <br><br>
+    <a href="affiliate_survey.zip" download>Download Affiliate Client</a>
   <? } else { ?>
-    You do not have an API Access Token yet. Click below to generate one.
+    You do not have an API Access Token yet. Click below to generate one and download the affiliate client.
   <? } ?>
   <br><br>
   <form method="POST">
