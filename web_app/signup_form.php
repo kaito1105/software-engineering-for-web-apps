@@ -201,6 +201,8 @@ $is_admin_user = $is_admin;
    <? } ?>
 <? } ?>
 
+<br><br><br><br><br><br>
+
 <?
 require 'ssi_bottom.php';
 ?>

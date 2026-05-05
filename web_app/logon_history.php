@@ -62,4 +62,6 @@ if (!$is_admin) {
 <br><br>
 <a href="dashboard.php">Go to Dashboard</a>
 
+<br><br><br><br><br><br>
+
 <? require "ssi_bottom.php"; ?>

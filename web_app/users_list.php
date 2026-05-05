@@ -91,4 +91,6 @@ if (!$is_admin) {
 
 </script>
 
+<br><br><br><br><br><br>
+
 <? require "ssi_bottom.php"; ?>
